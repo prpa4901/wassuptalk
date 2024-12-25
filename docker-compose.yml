@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+     - "8501:8501"
+    volumes:
+      - ./shared-data:/shared-data
+    networks:
+      - common-network
+
+
+volumes:
+  shared-data:
+
+networks:
+  common-network:
+    driver: bridge

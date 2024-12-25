@@ -11,5 +11,3 @@ async def root():
     Testing base call
     '''
     return {"message": "Hello"}
-
-
