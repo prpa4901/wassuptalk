@@ -1,5 +1,3 @@
-# wassuptalk
-
 # Chatbot Tool with Hugging Face Models
 
 This project provides an easy-to-use chatbot interface powered by Hugging Face models, such as Falcon, Mistral, and Phi-2. The chatbot runs in a Dockerized environment and includes a Makefile for streamlined setup and management.
@@ -38,49 +36,58 @@ This project provides an easy-to-use chatbot interface powered by Hugging Face m
 ```bash
 git clone <your-repository-url>
 cd <your-repository-folder>
-Step 2: Build and Run the Application
-Use the Makefile to simplify setup and usage.
+```
 
-Commands:
-Build and Run the Application:
+### Step 2: Build and Run the Application
+Use the `Makefile` to simplify setup and usage.
 
-bash
-Copy code
-make build-and-run
-Start the Application (without rebuilding):
+#### Commands:
 
-bash
-Copy code
-make up
-Stop and Remove Containers:
+1. **Build and Run the Application**:
+   ```bash
+   make build-and-run
+   ```
 
-bash
-Copy code
-make down
-View Logs:
+2. **Start the Application** (without rebuilding):
+   ```bash
+   make up
+   ```
 
-bash
-Copy code
-make logs
-Clean Up Unused Docker Objects:
+3. **Stop and Remove Containers**:
+   ```bash
+   make down
+   ```
 
-bash
-Copy code
-make clean
-Accessing the Chatbot
-Open your web browser and navigate to:
+4. **View Logs**:
+   ```bash
+   make logs
+   ```
 
-arduino
-Copy code
-http://localhost:8501
-Enter your Hugging Face API token in the chatbot interface:
+5. **Clean Up Unused Docker Objects**:
+   ```bash
+   make clean
+   ```
 
-Don't have a token yet? Create one here.
-Select a model (e.g., Falcon, Mistral, Phi-2) and start chatting!
+---
 
-Project Structure
-bash
-Copy code
+## Accessing the Chatbot
+
+1. Open your web browser and navigate to:
+
+   ```
+   http://localhost:8501
+   ```
+
+2. Enter your Hugging Face API token in the chatbot interface:
+   - **Don't have a token yet?** [Create one here](https://huggingface.co/settings/tokens).
+
+3. Select a model (e.g., Falcon, Mistral, Phi-2) and start chatting!
+
+---
+
+## Project Structure
+
+```
 ├── Dockerfile              # Docker configuration for the app
 ├── docker-compose.yml      # Docker Compose configuration
 ├── Makefile                # Simplified commands for setup and management
@@ -91,38 +98,35 @@ Copy code
 │   └── requirements.txt    # Python dependencies
 ├── README.md               # Project documentation
 └── assets/                 # Images and other assets
-Models Supported
-Model Name	Description
-tiiuae/falcon-7b	Falcon 7B, medium-sized powerful model.
-mlx-community/phi-2	Phi-2, lightweight model for general use.
-mistralai/Mistral-7B-v0.1	Mistral 7B, latest medium-sized model.
-gpt2	GPT-2, general-purpose model.
-Customization
-Add Your Own Profile Image
-Replace the default user image (path_to_user_image.png) in the assets/ folder.
-Replace the bot image (path_to_bot_image.png) in the same folder.
-Contributing
+```
+
+---
+
+## Models Supported
+
+| Model Name                 | Description                                  |
+|----------------------------|----------------------------------------------|
+| `tiiuae/falcon-7b`         | Falcon 7B, medium-sized powerful model.     |
+| `mlx-community/phi-2`      | Phi-2, lightweight model for general use.   |
+| `mistralai/Mistral-7B-v0.1`| Mistral 7B, latest medium-sized model.      |
+| `gpt2`                     | GPT-2, general-purpose model.               |
+
+---
+
+## Customization
+
+### Add Your Own Profile Image
+- Replace the default user image (`path_to_user_image.png`) in the `assets/` folder.
+- Replace the bot image (`path_to_bot_image.png`) in the same folder.
+
+---
+
+## Contributing
+
 Feel free to submit issues or pull requests for any bugs, enhancements, or new features you'd like to see!
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-yaml
-Copy code
-
 ---
 
-### **Key Changes**
-1. **Removed ENV Variable Setup**:
-   - Removed the step to `export HUGGINGFACE_API_TOKEN`, as the token is input via the UI.
+## License
 
-2. **Updated Token Instructions**:
-   - Clarified that the token is entered in the chatbot interface directly.
-   - Added a link to generate the token on Hugging Face.
-
-3. **Simplified Instructions**:
-   - Focused on running the app with `make` commands and navigating to the web interface.
-
----
-
-Let me know if you'd like further refinements or additional sections in the README! 🚀
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
