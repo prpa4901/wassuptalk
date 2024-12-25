@@ -26,6 +26,11 @@ model_mapping = {
     "gpt2": "GPT-2"
 }
 
+# User and bot images
+USER_IMAGE = "static/images/your-image.png"  # Replace with your image path
+BOT_IMAGE = "static/images/bot-image.png"  # Replace with bot image path
+
+
 
 if not st.session_state["token_validated"]:
     with st.container():
@@ -88,8 +93,7 @@ if st.session_state["token_validated"]:
                         print(response)
                         data = response
                         print(data)
-                        st.session_state["history"].append(f"**You**: {user_input}")
-                        st.session_state["history"].append(f"**Talky**: {data}")
+                        st.session_state["history"].append({"user_message": user_input, "bot_response": response})
                 else:
                     st.warning("Please enter a message before sending.")
 
@@ -105,6 +109,25 @@ if st.session_state["token_validated"]:
         
         st.write("### Chat History")
         for message in st.session_state["history"]:
-            st.markdown(message)
+            with st.container():
+                col1, col2, col3 = st.columns([4, 5, 1])
+                with col1:
+                    st.empty()  # Placeholder to align to the right
+                with col2:
+                    st.markdown(f"**You:** {message['user_message']}")
+                with col3:  
+                    st.image(USER_IMAGE, width=30)
+
+            with st.container():
+                col1, col2, col3 = st.columns([1, 8, 1])
+                with col1:
+                    st.image(BOT_IMAGE, width=30)  # Bot image
+                with col2:
+                    st.markdown(f"**Talky:** {message['bot_response']}")
+                with col3:
+                    st.empty()
+
+            
+            
     else:
         st.info("Please validate your token first to enable chatbot functionality.")
